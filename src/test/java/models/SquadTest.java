@@ -52,12 +52,11 @@ class SquadTest {
         Squad.clearAllInstances();
         Squad na= new Squad("super","kill");
         Squad naw= new Squad("super","kill");
-        ArrayList<Squad> sq= new ArrayList<>();
-        sq.add(na);
-        sq.add(naw);
-        int k= sq.size();
-        sq.remove(naw.id()-1);
-        assertNotEquals(k,sq.size());
+        Squad.getsInstance().add(na);
+        Squad.getsInstance().add(naw);
+        int k= Squad.getsInstance().size();
+        Squad.getsInstance().remove(naw.id()-1);
+        assertNotEquals(k,Squad.getsInstance().size());
 
     }
 }
