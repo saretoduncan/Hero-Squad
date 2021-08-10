@@ -59,4 +59,5 @@ class SquadTest {
         assertNotEquals(k,Squad.getsInstance().size());
 
     }
+
 }
