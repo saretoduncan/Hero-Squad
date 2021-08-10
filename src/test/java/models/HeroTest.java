@@ -32,7 +32,7 @@ class HeroTest {
     Hero.getNinjaInstance().add(hero);
     Hero.getNinjaInstance().add(hero1);
     int heroLength= Hero.getNinjaInstance().size();
-    Hero.getNinjaInstance().remove(hero1.getId()-1);
+    Hero.deleteHeroNinjaInstance(hero1.getId()-1);
     assertNotEquals(heroLength,Hero.getNinjaInstance().size());
 
 
