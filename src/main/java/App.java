@@ -30,7 +30,12 @@ import static spark.Spark.*;
          get("/hero/details",(request, response) -> {
                 Map<String,Object> model= new HashMap<>();
              model.put("nam", request.session().attribute("nam"));
-                return  new ModelAndView(model,"success.html");
+                return  new ModelAndView(model,"heros.hbs");
             }, new HandlebarsTemplateEngine());
+         get("/squad", (request, response) -> {
+             Map<String,Object> model= new HashMap<String, Object>();
+             return new ModelAndView(model,"squad-forms.html");
+         }, new HandlebarsTemplateEngine());
         }
+
     }
