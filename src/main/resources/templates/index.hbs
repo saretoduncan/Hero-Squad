@@ -3,24 +3,21 @@ squad forms
 {{/partial}}
 {{#partial "content"}}
 <link rel="stylesheet" href="/css/index.css">
-<div>
+ <div class="container">
+  <div class="row">
+     <div class="col-12 col-md-6 d-flex align-items-center colHeight"> </div>
 
 
-</div>
-<div class="container">
- <div class="row">
-   <div class="col-12 col-md-6 d-flex align-items-center colHeight">
-
-   </div>
    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center flex-column colHeight">
      <h3 class="text-light text-center">Create your own Superhero.</h3>
-   <form action="/hero">
+    <form action="/hero/details" method="POST" ons>
      <div class="form-group mt-2">
        <label for="name" class="text-light">Hero's name</label>
        <input id="name" name="name" class="form-control" type="text" required>
-     </div> <div class="form-group mt-2">
+     </div>
+     <div class="form-group mt-2">
        <label for="age" class="text-light">age</label>
-       <input id="age" name="name" class="form-control" type="number" min="0" required>
+       <input id="age" name="age" class="form-control" type="number" min="0"  required>
      </div>
      <div class="form-group mt-2">
        <label for="powers" class="text-light">special power</label>
@@ -31,13 +28,14 @@ squad forms
        <input id="weakness" name="weakness" class="form-control" type="text" required>
      </div>
      <div class="d-flex justify-content-center">
-       <button type="submit" class="btn btn-info mt-2">Add Hero</button>
+       <button type="submit" class="btn btn-info mt-2" >Add Hero</button>
      </div>
 
-   </form>
- </div>
+     </form>
+   </div>
 
- </div>
-</div>
+   </div>
+  </div>
+
 {{/partial}}
 {{> layout.hbs}}
