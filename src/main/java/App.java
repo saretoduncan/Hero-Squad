@@ -1,4 +1,5 @@
 import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -25,17 +26,36 @@ import static spark.Spark.*;
               ArrayList<Hero> arr=Hero.getNinjaInstance();
               req.session().attribute("nam",arr);
              model.put("nam", req.session().attribute("nam"));
-             return new ModelAndView(model, "success.html");
+             return new ModelAndView(model, "heros.hbs");
          },new HandlebarsTemplateEngine());
          get("/hero/details",(request, response) -> {
                 Map<String,Object> model= new HashMap<>();
              model.put("nam", request.session().attribute("nam"));
                 return  new ModelAndView(model,"heros.hbs");
             }, new HandlebarsTemplateEngine());
-         get("/squad", (request, response) -> {
+         get("/squad/form", (request, response) -> {
              Map<String,Object> model= new HashMap<String, Object>();
+             model.put("hero", request.session().attribute("nam"));
              return new ModelAndView(model,"squad-forms.html");
          }, new HandlebarsTemplateEngine());
-        }
 
+        post("/squad", (req, res)->{
+            Map<String, Object> model= new HashMap<String, Object>();
+            String name= req.queryParams("name");
+            String Cause= req.queryParams("cause");
+            Squad squadCons= new Squad(name, Cause);
+            ArrayList<Squad>allSquads= Squad.getsInstance();
+            req.session().attribute("squad",allSquads);
+            model.put("squad", req.session().attribute("squad"));
+            model.put("hero", req.session().attribute("nam"));
+            return new ModelAndView(model,"squad.html");
+
+        }, new HandlebarsTemplateEngine());
+        get("/squad/home",(request, response) -> {
+            Map<String,Object> model= new HashMap<String, Object>();
+            model.put("squad", request.session().attribute("squad"));
+            model.put("hero", request.session().attribute("nam"));
+            return new ModelAndView(model,"squad.html");
+        },new HandlebarsTemplateEngine());
+    }
     }
