@@ -1,0 +1,38 @@
+{{#partial "content"}}
+<link rel="stylesheet" href="/css/hero.css">
+<div class="container success text-center mt-5">
+    <h1 class="text-light">LIST OF YOUR SQUADS</h1>
+
+    <div class="container">
+
+        <div class="row">
+            {{#if squad}}
+            {{#each squad}}
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="card bg-dark mb-4" style="width: 18rem;">
+                    <div class="card-body text-start ">
+                        <p class="text-light">Squad Name: {{name}}</p>
+                        <p class="text-light">Squad Cause: {{mission}}</p>
+
+                        <ol class="text-start text-light">
+                            <h4>Members</h4>
+                            {{#each hero}}
+                            <li>Name: {{name}}</li>
+                           {{/each}}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{ else}}
+            <h3 class="text-light">You haven't created any squads for now</h3>
+            <p class="text-light"> <a href="/squad/form">Click here</a> to create your own </p>
+
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>
+{{/partial}}
+{{> layout.hbs}}

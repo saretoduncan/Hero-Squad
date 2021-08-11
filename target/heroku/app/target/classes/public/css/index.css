@@ -1,0 +1,10 @@
+*{
+   margin:0;
+   padding:0;
+}
+form{
+    width:500px ;
+}
+.colHeight{
+    height: 60vh;
+}

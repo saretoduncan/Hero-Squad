@@ -1,0 +1,30 @@
+{{#partial "content"}}
+<link rel="stylesheet" href="/css/squad-form.css">
+<div class="container d-flex justify-content-center align-items-center flex-column squad">
+ <h2 class="text-info ">CREATE SQUAD</h2>
+{{#if hero}}
+    <form action="/squad" method="POST" >
+        <div class="form-group mt-2">
+            <label for="name" class="text-light">squad name</label>
+            <input id="name" name="name" class="form-control" type="text" required>
+        </div>
+             ]
+
+        <div class="form-group mt-1">
+            <label for="cause" class="text-light">Cause</label>
+            <input id="cause" name="cause" class="form-control" type="text" required>
+        </div>
+        <div class="mt-2" >
+           <button type="submit" class="btn btn-info">Add squad</button>
+        </div>
+
+
+    </form>
+    {{else}}
+    <h3 class="text-light">You haven't created any heroes for now</h3>
+    <p class="text-light"> <a href="/">Click here</a> to create your own </p>
+    {{/if}}
+</div>
+{{/partial}}
+
+{{> layout.hbs}}
